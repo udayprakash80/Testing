@@ -1,6 +1,6 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA, OnInit} from '@angular/core';
-import {Post} from "../../models/Post";
-import {PostService} from "../../services/Post/post.service";
+import {Component, OnInit} from '@angular/core';
+import {Post} from "../../models/Post.model";
+import {PostService} from "../../../services/Post/post.service";
 
 @Component({
   selector: 'app-posts',
@@ -8,7 +8,6 @@ import {PostService} from "../../services/Post/post.service";
   styleUrl: './posts.component.scss'
 })
 export class PostsComponent implements OnInit {
-
   posts: Post[] = [];
   constructor(private postService: PostService) {
   }

@@ -1,15 +1,15 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA, OnInit} from '@angular/core';
-import {Post} from "../../models/Post";
-import {PostService} from "../../services/Post/post.service";
+import {Component, OnInit} from '@angular/core';
+import {Post} from "../../../models/Post.model";
+import {PostService} from "../../../../services/Post/post.service";
 
 @Component({
-  selector: 'app-posts',
-  templateUrl: './posts.component.html',
-  styleUrl: './posts.component.scss'
+  selector: 'app-post-list',
+  templateUrl: './post-list.component.html',
+  styleUrl: './post-list.component.scss'
 })
-export class PostsComponent implements OnInit {
-
+export class PostListComponent implements OnInit {
   posts: Post[] = [];
+
   constructor(private postService: PostService) {
   }
 
@@ -23,9 +23,10 @@ export class PostsComponent implements OnInit {
     })
   }
 
-  delete(post: Post){
+  delete(post: Post) {
     this.postService.deletePost(post).subscribe(data => {
       this.posts = this.posts.filter((p) => p.id !== post.id);
     })
   }
+
 }
